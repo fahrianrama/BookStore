@@ -26,10 +26,10 @@
                     ?>
                     <form action="<?= base_url('login/auth') ?>" method="post">
                         <div class="form-group my-4">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
                         </div>
                         <div class="form-group mb-4">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-success btn-block">Sign In</button>

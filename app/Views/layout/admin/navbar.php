@@ -1,26 +1,52 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="<?= base_url('admin') ?>">Admin Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+  <div class="container my-2">
+      <div class="text-white">
+        <i class="fa-solid fa-book fa-lg"></i>
+        <a class="fa-solid navbar-brand disabled mx-3">BookStore</a>
+      </div>
+
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link" id="dashboard" href="<?= base_url('dashboard')?>">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="katalog" href="<?= base_url('admin/pesanan') ?>">Pesanan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="buku" href="<?= base_url('admin/katalog') ?>">Katalog</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="kategori" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kategori Buku
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <!-- get category from database -->
+            <?php
+            foreach ($data['kategori'] as $book){
+              ?>
+              <li class="dropdown-item"><a href="<?= base_url('admin'); ?>/kategori/<?= $book['kategori']; ?>" class="dropdown-item"><?= ucfirst($book['kategori']); ?></a></li>
+              <?php
+            };
+            ?>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex mx-5" action="<?=base_url('admin/search')?>" method="POST">
+        <input class="form-control me-2" type="search" name="keyword" placeholder="Cari Buku" aria-label="Search">
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+      <!-- user profile -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa-solid fa-user-circle fa-lg"></i>
+          <?= ucfirst($data['user']); ?>
         </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('admin/news') ?>">News</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="<?= base_url('admin/news/new') ?>" class="btn btn-primary mr-3">New Post</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('admin/setting') ?>">Setting</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('auth/logout') ?>">Logout</a>
-                </li>
-            </ul>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="<?= base_url()?>/admin/showuser/<?= $data['user']?>">Setting <i class="fa-solid fa-gears float-end"></i></a>
+          <a class="dropdown-item" href="<?= base_url()?>/account/logout">Logout <i class="fa-solid fa-arrow-right-from-bracket float-end"></i></a>
         </div>
+      </div>
     </div>
+  </div>
 </nav>

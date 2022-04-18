@@ -8,4 +8,11 @@
             $link[$i].classList.add('active');
         }
     }
+    // auto total
+    function totalharga(){
+        var jumlah = parseInt(document.getElementById('jumlah').value);
+        var harga = parseInt(document.getElementById('harga').value);
+        var total = jumlah * harga;
+        document.getElementById('total').value = total;
+    }
 </script>

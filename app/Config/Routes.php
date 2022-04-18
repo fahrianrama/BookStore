@@ -35,7 +35,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/katalog', 'Katalog::index');
 $routes->get('/katalog/detail/:id', 'Katalog::detail');
-
+$routes->get('/katalog/kategori/:kategori','Katalog::kategori');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

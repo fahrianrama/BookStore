@@ -23,7 +23,11 @@ class Login extends BaseController
             if($password == $data['password']){
                 $session->set('username', $data['username']);
                 $session->set('role', $data['role']);
-                return redirect()->to('/dashboard');
+                if($session->get('role') == 'kurir'){
+                    return redirect()->to(base_url('/kurir'));
+                }else{
+                    return redirect()->to('/dashboard');
+                }
             }
             else{
                 $session->setFlashdata('gagal', 'Password Salah');

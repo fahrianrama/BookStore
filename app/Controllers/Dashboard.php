@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use CodeIgniter\Controller;
+use App\Controllers\Admin;
 use App\Models\BookModel;
 
 class Dashboard extends Controller
@@ -15,7 +16,8 @@ class Dashboard extends Controller
         $data = [
             'user' => $session->get('username'),
             'role' => $session->get('role'),
-            'buku' => $model->getBook(),
+            'buku' => $model->getBookDashboard(),
+            'kategori' => $model->getCategory(),
         ];
         return view('dashboard', ['data' => $data]);
     }

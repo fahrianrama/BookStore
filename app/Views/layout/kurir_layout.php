@@ -14,8 +14,11 @@
 </head>
 
 <body>
-	
-    <?= $this->include('layout/navbar') ?>
+
+    <?= $this->include('layout/navbar_kurir') ?>
+	<?php if(isset($data['content'])){?>
+    	<?= $this->include('layout/header') ?>
+	<?php } ?>
     
     <?= $this->renderSection('content') ?>
     
@@ -24,7 +27,7 @@
 	<!-- Jquery dan Bootsrap JS -->
 	<script src="<?= base_url('js/jquery.min.js') ?>"></script>
 	<script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
-
+	
 </body>
 
 </html>

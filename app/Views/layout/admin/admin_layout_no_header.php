@@ -15,14 +15,7 @@
 <body>
 
     <?= $this->include('layout/admin/navbar') ?>
-    <?= $this->include('layout/admin/header') ?>
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-md-12">
-                <?= $this->renderSection('content') ?>
-            </div>
-        </div>
-    </div>
+    <?= $this->renderSection('content') ?>
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('js/jquery.min.js') ?>"></script>
